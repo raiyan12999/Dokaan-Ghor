@@ -1,0 +1,30 @@
+{% extends "home/base.html" %} {% block content %}
+
+<h1>Remote Commerce</h1>
+<h3><a href="/home/form">Want to sell product?</a></h3>
+
+<style>
+  div {
+    background-color: steelblue;
+    width: 400px;
+    color: white;
+    font-family: URW Chancery L, cursive;
+    font-size: 15px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px;
+  }
+</style>
+
+{% for entry in all_entries %}
+<div>
+  <h2>Product Id: {{entry.id}}</h2>
+  <h2>Product Name: {{entry.product_name}}</h2>
+  <h2>Price: {{entry.price}}</h2>
+  <h2>Seller Name: {{entry.seller_name}}</h2>
+
+  <a href="product/{{entry.id}}" style="color: white"> Details </a>
+</div>
+<br />
+<br />
+{% endfor %} {% endblock %}

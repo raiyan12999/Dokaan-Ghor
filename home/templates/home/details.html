@@ -1,0 +1,15 @@
+{% extends "home/base.html" %} {% block content %}
+
+<h1>Details Page</h1>
+<h3><a href="/home/form">Want to sell product?</a></h3>
+
+<h3><a href="/home">Return to homepage</a></h3>
+
+<h2>Product id: {{current_product.id}}</h2>
+<h2>Product Name: {{current_product.product_name}}</h2>
+<h2>Price: {{current_product.price}}</h2>
+<h2>Seller Name: {{current_product.seller_name}}</h2>
+
+<a href="/home/cart/{{current_product.id}}"> add to cart </a>
+
+{% endblock %}
