@@ -15,10 +15,13 @@ def form(request):
     if request.method == "POST":
         product_name = request.POST.get("product_name")
         price = request.POST.get("price")
+        product_image = request.FILES.get("product_image")
         seller_name = request.POST.get("seller_name")
 
-        entry = Product.objects.create(product_name = product_name, price = price, seller_name = seller_name)
+        entry = Product.objects.create(product_name = product_name, price = price, product_image = product_image,seller_name = seller_name)
         entry.save()
+        
+        
 
         message = "Proudct Added Successfully"
 
@@ -59,4 +62,5 @@ def sold(request, pk):
     }
 
     return render(request, "home/sold.html", context)
+
 

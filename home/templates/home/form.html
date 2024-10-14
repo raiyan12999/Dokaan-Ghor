@@ -1,13 +1,15 @@
 {% extends "home/base.html" %} {% block content %}
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <label for="pname">Product name:</label><br />
   <input type="text" id="pname" name="product_name" /><br />
   <label for="price">Price:</label><br />
   <input type="text" id="price" name="price" /> <br />
   <label for="sname">Seller name:</label><br />
-  <input type="text" id="sname" name="seller_name" />
+  <input type="text" id="sname" name="seller_name" /> <br>
+  <label for="image">Product image:</label><br />
+  <input type="file" id="image" name="product_image" accept="image/*" required> <br>
   <input type="submit" value="Submit" />
 </form>
 <h3><a href="/home">Return to homepage</a></h3>
