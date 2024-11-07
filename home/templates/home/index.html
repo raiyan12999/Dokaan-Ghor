@@ -21,7 +21,15 @@
   <h2>Product Id: {{entry.id}}</h2>
   <h2>Product Name: {{entry.product_name}}</h2>
   <h2>Price: {{entry.price}}</h2>
+  {% if entry.product_image %}
+  <h2> Image: <img src="{{ entry.product_image.url }}" alt="{{ entry.product_name }}" /></h2>
+  {{entry.product_image.url}}
+  {% else %}
+  <h2> Image: No Image </h2>
+  {% endif %}
   <h2>Seller Name: {{entry.seller_name}}</h2>
+  
+  
 
   <a href="product/{{entry.id}}" style="color: white"> Details </a>
 </div>
