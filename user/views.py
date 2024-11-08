@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import UserProfile
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
@@ -27,5 +28,29 @@ def register(request):
 
 
     return render(request, "user/register.html")
+
+def login_page(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        auth_user = authenticate(request, username = username, password = password)
+
+        context = {
+            "message" : "Invalid credentials"
+        }
+
+        if auth_user is not None:
+            login(request, auth_user)
+
+            return render(request, "home/index.html")
+        else:
+            return render(request, "user/login_page.html", context = context)
+    return render(request, "user/login_page.html")
+
+def logout_page(request):
+    logout(request)
+
+    return render(request, "user/login_page.html")
 
 
