@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import UserProfile
+from home.models import Product
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -35,15 +36,17 @@ def login_page(request):
         password = request.POST.get("password")
 
         auth_user = authenticate(request, username = username, password = password)
+        all_entries = Product.objects.all()
 
         context = {
-            "message" : "Invalid credentials"
+            "message" : "Invalid credentials",
+            "all_entries" : all_entries
         }
 
         if auth_user is not None:
             login(request, auth_user)
 
-            return render(request, "home/index.html")
+            return redirect("/home/")
         else:
             return render(request, "user/login_page.html", context = context)
     return render(request, "user/login_page.html")
@@ -51,6 +54,6 @@ def login_page(request):
 def logout_page(request):
     logout(request)
 
-    return render(request, "user/login_page.html")
+    return redirect("/login/")
 
 
