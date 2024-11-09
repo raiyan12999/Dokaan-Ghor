@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from . models import Product
+from user.models import UserProfile
+from cart.models import CartItem
 
 # Create your views here.
 
@@ -47,8 +49,26 @@ def product(request, pk):
 def cart(request, pk):
 
     current_product = Product.objects.get(id = pk)
+
+    if request.user.is_authenticated:
+        logged_user = request.user
+        current_user = UserProfile.objects.get(user = logged_user)
+        
+
+        cart_item, created = CartItem.objects.get_or_create(profile = current_user)
+
+        current_product.cart = cart_item
+        current_product.save()
+
+        context = {
+            "current_product" : current_product,
+            "cart_name" : current_product.cart
+        }
+
+        return render(request, "home/cart.html", context)
     context = {
-        "current_product" : current_product
+        "current_product" : current_product,
+        "message" : "User is not logged in"
     }
     return render(request, "home/cart.html", context)
 

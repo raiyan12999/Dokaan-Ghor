@@ -56,4 +56,22 @@ def logout_page(request):
 
     return redirect("/login/")
 
+def user_data(request):
+
+    context = {
+        "name" : "No user is logged in currently"
+    }
+    if request.user.is_authenticated:
+        user = request.user
+
+        name = user.username
+
+        context = {
+            "name" : name
+        }
+
+        return render(request, "user/data.html", context)
+    return render(request, "user/data.html", context)
+
+
 
