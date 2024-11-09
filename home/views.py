@@ -65,6 +65,9 @@ def cart(request, pk):
             "cart_name" : current_product.cart
         }
 
+        
+
+
         return render(request, "home/cart.html", context)
     context = {
         "current_product" : current_product,
@@ -82,5 +85,7 @@ def sold(request, pk):
     }
 
     return render(request, "home/sold.html", context)
+
+
 
 

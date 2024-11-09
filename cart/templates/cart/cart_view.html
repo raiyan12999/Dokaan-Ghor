@@ -1,3 +1,9 @@
 {% extends "cart/base.html"%} {% block content %}
-<h1>This is your Cartview</h1>
+<h1>This is {{first_name}} {{last_name}} {{username}}'s Cartview</h1>
+
+{% for product in products %}
+<h2> {{product.product_name}} -- {{product.price}} BDT </h3>
+{% endfor %}
+
+<a href="/home"> Add more products </a>
 {% endblock %}
