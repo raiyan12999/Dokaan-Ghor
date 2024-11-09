@@ -1,6 +1,6 @@
 {% extends "home/base.html" %} {% block content %}
 
-<h1>Cart</h1>
+<h1>Successful !!!</h1>
 
 <br />
 <h2>Product Id: {{current_product.id}}</h2>
@@ -10,15 +10,19 @@
 <h3>Cart: {{cart_name}}</h3>
 <h3>{{message}}</h3>
 <br />
-<form method="post">
+<!--<form method="post">
   {% csrf_token %}
   <label for="Buyer First Name">First Name:</label><br />
   <input type="text" id="fname" name="buyerf_name" /> <br />
   <label for="Buyer Last Name">Last Name:</label><br />
   <input type="text" id="lname" name="buyerl_name" />
 </form>
-<br />
+<br /> -->
+
 <a href="/home/sold/{{current_product.id}}"> Confirm Checkout </a>
 <br />
-<h3><a href="/home">Return to homepage</a></h3>
-{% endblock %}
+<h3>
+  <a href="/cart"> Check your cart </a> <br />
+  <h3><a href="/home">Add another item</a></h3>
+  {% endblock %}
+</h3>
