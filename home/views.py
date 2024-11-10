@@ -62,7 +62,8 @@ def cart(request, pk):
 
         context = {
             "current_product" : current_product,
-            "cart_name" : current_product.cart
+            "cart_name" : current_product.cart,
+            "user" : logged_user
         }
 
         

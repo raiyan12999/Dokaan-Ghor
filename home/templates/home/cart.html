@@ -1,6 +1,11 @@
 {% extends "home/base.html" %} {% block content %}
 
+<h1>Result page</h1>
+{% if request.user.is_authenticated %}
 <h1>Successful !!!</h1>
+{% else %}
+<h1>Unsuccessful !!!</h1>
+{% endif %}
 
 <br />
 <h2>Product Id: {{current_product.id}}</h2>
