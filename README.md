@@ -23,35 +23,6 @@ Dokaan Ghor is a simple e-commerce project that simulates basic functionalities 
 
 ---
 
-## Project Structure
-
-```
-
-Dokaan-Ghor/
-├── Dokaan_Ghor/
-│ ├── **init**.py
-│ ├── asgi.py
-│ ├── settings.py
-│ ├── urls.py
-│ └── wsgi.py
-├── products/
-│ ├── admin.py
-│ ├── apps.py
-│ ├── migrations/
-│ ├── models.py
-│ ├── tests.py
-│ └── views.py
-├── db.sqlite3
-├── manage.py
-└── templates/
-├── base.html
-├── add_product.html
-├── view_products.html
-
-```
-
----
-
 ## Backend
 
 - **Django**: Utilized for routing, ORM, and handling server-side logic.
@@ -83,3 +54,8 @@ Dokaan-Ghor/
 - Enhance authentication mechanisms with third-party integrations.
 
 ---
+
+## Author
+
+**Raiyan Bin Atik**  
+[GitHub Profile](https://github.com/raiyan12999)
