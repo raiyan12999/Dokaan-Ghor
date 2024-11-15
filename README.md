@@ -1,4 +1,3 @@
-```markdown
 # Dokaan Ghor
 
 Dokaan Ghor is a simple e-commerce project that simulates basic functionalities like adding, viewing, deleting and also buying and selling products. It focuses on implementing backend features with Django without using Django REST Framework or extensive frontend technologies.
@@ -25,6 +24,7 @@ Dokaan Ghor is a simple e-commerce project that simulates basic functionalities 
 ---
 
 ## Project Structure
+
 ```
 
 Dokaan-Ghor/
@@ -83,5 +83,3 @@ Dokaan-Ghor/
 - Enhance authentication mechanisms with third-party integrations.
 
 ---
-
-```
